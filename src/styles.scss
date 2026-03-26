@@ -1,6 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
 
-@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@include mat.core();
+
+$primary: mat.define-palette(mat.$blue-grey-palette, 800);
+$accent: mat.define-palette(mat.$teal-palette, 400);
+$warn: mat.define-palette(mat.$red-palette);
+
+$dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+  )
+));
+
+@include mat.all-component-themes($dark-theme);
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Roboto', sans-serif;
+}
+
 @import "node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 html, body { height: 100%; }
