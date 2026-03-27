@@ -3,11 +3,13 @@
 
 @include mat.core();
 
-$primary: mat.define-palette(mat.$blue-grey-palette, 800);
-$accent: mat.define-palette(mat.$teal-palette, 400);
-$warn: mat.define-palette(mat.$red-palette);
+/* 🔴 Define Red + Black Dark Theme */
 
-$dark-theme: mat.define-dark-theme((
+$primary: mat.define-palette(mat.$red-palette, 600);
+$accent: mat.define-palette(mat.$red-palette, A200);
+$warn: mat.define-palette(mat.$deep-orange-palette);
+
+$black-red-theme: mat.define-dark-theme((
   color: (
     primary: $primary,
     accent: $accent,
@@ -15,11 +17,48 @@ $dark-theme: mat.define-dark-theme((
   )
 ));
 
-@include mat.all-component-themes($dark-theme);
+@include mat.all-component-themes($black-red-theme);
+
+/* 🖤 Global Background Styling */
 
 body {
   margin: 0;
   font-family: 'Inter', 'Roboto', sans-serif;
+  background-color: #0f0f0f;
+  color: #ffffff;
+}
+
+/* 🔥 Card Professional Look */
+
+.mat-mdc-card {
+  background: #1a1a1a;
+  border-radius: 12px;
+}
+
+/* 🌊 Custom Scrollbar (Aqua Color) */
+
+/* For Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: aqua;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00ffff;
+}
+
+/* For Firefox */
+* {
+  scrollbar-color: aqua #111;
+  scrollbar-width: thin;
 }
 
 @import "node_modules/bootstrap/dist/css/bootstrap.min.css";
